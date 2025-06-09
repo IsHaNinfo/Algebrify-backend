@@ -28,7 +28,8 @@ class pointRepository {
         try {
             const result = await Point.findAll({
                 include: [{ model: User, as: 'user' }],
-                order: [['point', 'DESC']]
+                order: [['point', 'DESC']],
+                limit:10
             });
             return result;
         } catch (error) {

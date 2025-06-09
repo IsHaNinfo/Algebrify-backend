@@ -8,6 +8,7 @@ class DiscussionController {
             res.status(ApiResponse.HTTP_STATUS.CREATED).json(
                 ApiResponse.success(result)
             );
+            console.log("🚀 ~ DiscussionController ~ create= ~ req.body.point:", req.body.point, req.user.id)
         } catch (error) {
             next(error);
         }
