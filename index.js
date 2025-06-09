@@ -5,6 +5,7 @@ import sequelize from "./config/db.connection.js";
 import errorHandler from "./middleware/errorHandler.js";
 import userRoute from "./routes/user.routes.js";
 import discussionRoute from "./routes/discussion.routes.js";
+import pointRouter from "./routes/point.routes.js";
 import swaggerUi from 'swagger-ui-express';
 import { specs } from './config/swagger.js';
 
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/users", userRoute);
 app.use("/api/discussions", discussionRoute);
+app.use("/api/points", pointRouter);
 // Swagger Documentation Route - Separate from API routes
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs, {
   explorer: true,
